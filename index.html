@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="renigman · 生物信息学个人主页" />
+  <meta name="theme-color" content="#667eea" />
+  <link rel="icon" type="image/svg+xml" href="icons/icon-192.svg" />
+  <link rel="apple-touch-icon" href="icons/icon-192.svg" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <title>renigman · 生物信息学</title>
+</head>
+<body>
+
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">renigman</a>
+      <div class="nav-links" id="navLinks">
+        <a href="#hero" class="nav-link active">首页</a>
+        <a href="#about" class="nav-link">关于</a>
+        <a href="#skills" class="nav-link">技能</a>
+        <a href="#projects" class="nav-link">项目</a>
+        <a href="#experience" class="nav-link">经历</a>
+        <a href="#blog" class="nav-link">博客</a>
+        <a href="#contact" class="nav-link">联系</a>
+      </div>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="切换主题">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path class="sun" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+        </button>
+        <button class="menu-toggle" id="menuToggle" aria-label="菜单">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section id="hero" class="section hero-section"></section>
+    <section id="about" class="section"></section>
+    <section id="skills" class="section"></section>
+    <section id="projects" class="section"></section>
+    <section id="experience" class="section"></section>
+    <section id="blog" class="section"></section>
+    <section id="contact" class="section"></section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>&copy; 2026 renigman. Built with ❤</p>
+    </div>
+  </footer>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js')
+    }
+  </script>
+  <script src="js/content.js"></script>
+  <script src="js/sections/hero.js"></script>
+  <script src="js/sections/about.js"></script>
+  <script src="js/sections/skills.js"></script>
+  <script src="js/sections/projects.js"></script>
+  <script src="js/sections/experience.js"></script>
+  <script src="js/sections/blog.js"></script>
+  <script src="js/sections/contact.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
