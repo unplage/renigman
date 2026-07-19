@@ -1,4 +1,4 @@
-var CACHE_NAME = 'renigman-v1'
+var CACHE_NAME = 'renigman-v2'
 
 var PRECACHE_URLS = [
   '.',
@@ -16,6 +16,9 @@ var PRECACHE_URLS = [
   'icons/icon-192.svg',
   'icons/icon-512.svg',
   'manifest.json',
+  'feed.xml',
+  'sitemap.xml',
+  'blog/index.json',
 ]
 
 self.addEventListener('install', function (event) {
@@ -39,6 +42,26 @@ self.addEventListener('activate', function (event) {
 })
 
 self.addEventListener('fetch', function (event) {
+  var url = new URL(event.request.url)
+
+  if (url.pathname.match(/^\/blog\//)) {
+    event.respondWith(
+      caches.match(event.request).then(function (cached) {
+        var fetched = fetch(event.request).then(function (response) {
+          if (response && response.status === 200) {
+            var copy = response.clone()
+            caches.open(CACHE_NAME).then(function (cache) {
+              cache.put(event.request, copy)
+            })
+          }
+          return response
+        })
+        return cached || fetched
+      })
+    )
+    return
+  }
+
   event.respondWith(
     caches.match(event.request).then(function (cached) {
       var fetched = fetch(event.request).then(function (response) {

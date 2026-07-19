@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>renigman 的技术博客</title>
+    <link>https://unplage.github.io/renigman/</link>
+    <description>生物信息学 · 计算生物学 · 技术分享</description>
+    <language>zh-CN</language>
+    <lastBuildDate>Sat, 20 Jun 2026 00:00:00 GMT</lastBuildDate>
+    <atom:link href="https://unplage.github.io/renigman/feed.xml" rel="self" type="application/rss+xml"/>
+
+    <item>
+      <title>单细胞 RNA-seq 分析流程选型指南</title>
+      <link>https://unplage.github.io/renigman/#blog/rna-seq-guide</link>
+      <guid>https://unplage.github.io/renigman/#blog/rna-seq-guide</guid>
+      <pubDate>Sat, 20 Jun 2026 00:00:00 GMT</pubDate>
+      <description>深入对比 Seurat V5、Scanpy 和 Monocle 3 的核心差异</description>
+    </item>
+    <item>
+      <title>Nextflow 实战：构建可复用的生信分析流程</title>
+      <link>https://unplage.github.io/renigman/#blog/nextflow-practice</link>
+      <guid>https://unplage.github.io/renigman/#blog/nextflow-practice</guid>
+      <pubDate>Sun, 12 Apr 2026 00:00:00 GMT</pubDate>
+      <description>从 DSL2 语法、容器化到 CI/CD 集成</description>
+    </item>
+    <item>
+      <title>变异检测的 GATK 最佳实践解析</title>
+      <link>https://unplage.github.io/renigman/#blog/gatk-best-practice</link>
+      <guid>https://unplage.github.io/renigman/#blog/gatk-best-practice</guid>
+      <pubDate>Sat, 28 Feb 2026 00:00:00 GMT</pubDate>
+      <description>详解 GATK HaplotypeCaller 原理和 VQSR 流程</description>
+    </item>
+  </channel>
+</rss>

@@ -143,24 +143,6 @@ const CONTENT = {
     },
   ],
 
-  blog: [
-    {
-      date: '2026-06-20',
-      title: '单细胞 RNA-seq 分析流程选型指南',
-      excerpt: '深入对比 Seurat V5、Scanpy 和 Monocle 3 的核心差异，结合实际项目经验给出最适合不同场景的技术选型建议。',
-    },
-    {
-      date: '2026-04-12',
-      title: 'Nextflow 实战：构建可复用的生信分析流程',
-      excerpt: '从 DSL2 语法、容器化到 CI/CD 集成，手把手教你构建生产级 NGS 分析流程的最佳实践。',
-    },
-    {
-      date: '2026-02-28',
-      title: '变异检测的 GATK 最佳实践解析',
-      excerpt: '详解 GATK HaplotypeCaller 原理、VQSR 流程设计要点和常见错误排查方法。',
-    },
-  ],
-
   contact: {
     email: 'renigman@example.com',
     location: '中国 · 北京',

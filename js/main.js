@@ -1,4 +1,6 @@
 ;(function () {
+  var blogPostsCache = []
+
   function init() {
     var sections = {
       hero: document.querySelector('#hero'),
@@ -21,18 +23,16 @@
     initTheme()
     initNav()
     initScrollAnimations()
+    initRouter()
+    initKeyboard()
+    initSearch()
+
+    document.getElementById('readerClose').addEventListener('click', function () {
+      window.closeBlogReader()
+    })
   }
 
   function initTheme() {
-    var saved = localStorage.getItem('theme')
-    var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
-
-    if (saved) {
-      document.documentElement.setAttribute('data-theme', saved)
-    } else if (!prefersDark) {
-      document.documentElement.setAttribute('data-theme', 'light')
-    }
-
     var btn = document.getElementById('themeToggle')
     if (btn) {
       btn.addEventListener('click', function () {
@@ -75,7 +75,6 @@
         link.classList.toggle('active', href === '#' + current)
       })
     }
-
     window.addEventListener('scroll', updateActive, { passive: true })
     updateActive()
   }
@@ -102,6 +101,97 @@
     sections.forEach(function (section) {
       observer.observe(section)
     })
+  }
+
+  function initRouter() {
+    function handleHash() {
+      var hash = window.location.hash.slice(1)
+
+      if (hash.indexOf('blog/') === 0) {
+        var slug = hash.slice(5)
+        if (slug) {
+          window.loadBlogPost(slug)
+          document.getElementById('navbar').style.display = ''
+          return
+        }
+      }
+
+      window.closeBlogReader()
+    }
+
+    window.addEventListener('hashchange', handleHash)
+
+    if (window.location.hash.indexOf('#blog/') === 0) {
+      setTimeout(handleHash, 100)
+    }
+  }
+
+  function initKeyboard() {
+    document.addEventListener('keydown', function (e) {
+      if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+        e.preventDefault()
+        toggleSearch()
+      }
+      if (e.key === 'Escape') {
+        var overlay = document.getElementById('searchOverlay')
+        if (overlay.style.display !== 'none') {
+          closeSearch()
+        }
+        var reader = document.getElementById('blogReader')
+        if (reader.style.display !== 'none') {
+          window.closeBlogReader()
+        }
+      }
+    })
+  }
+
+  function initSearch() {
+    fetch('blog/index.json')
+      .then(function (r) { return r.json() })
+      .then(function (posts) {
+        blogPostsCache = posts
+        document.getElementById('searchInput').addEventListener('input', function () {
+          var q = this.value.toLowerCase().trim()
+          if (!q) { document.getElementById('searchResults').innerHTML = ''; return }
+          var results = blogPostsCache.filter(function (p) {
+            return p.title.toLowerCase().indexOf(q) !== -1 ||
+                   p.excerpt.toLowerCase().indexOf(q) !== -1 ||
+                   p.tags.some(function (t) { return t.toLowerCase().indexOf(q) !== -1 })
+          })
+          renderSearchResults(results)
+        })
+      })
+  }
+
+  function toggleSearch() {
+    var overlay = document.getElementById('searchOverlay')
+    if (overlay.style.display === 'none') {
+      overlay.style.display = ''
+      document.getElementById('searchInput').value = ''
+      document.getElementById('searchResults').innerHTML = ''
+      setTimeout(function () { document.getElementById('searchInput').focus() }, 100)
+    } else {
+      closeSearch()
+    }
+  }
+
+  function closeSearch() {
+    document.getElementById('searchOverlay').style.display = 'none'
+  }
+
+  function renderSearchResults(results) {
+    var container = document.getElementById('searchResults')
+    if (results.length === 0) {
+      container.innerHTML = '<div class="search-empty">无匹配结果</div>'
+      return
+    }
+    container.innerHTML = results.map(function (p) {
+      return '\
+        <a href="#blog/' + p.slug + '" class="search-result-item" onclick="closeSearch()">\
+          <div class="search-result-title">' + p.title + '</div>\
+          <div class="search-result-excerpt">' + p.excerpt + '</div>\
+        </a>'
+    }).join('')
   }
 
   if (document.readyState === 'loading') {

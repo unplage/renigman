@@ -5,13 +5,36 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="renigman · 生物信息学个人主页" />
   <meta name="theme-color" content="#667eea" />
+  <meta name="keywords" content="生物信息学,基因组学,单细胞,RNA-seq,生信,renigman" />
   <link rel="icon" type="image/svg+xml" href="icons/icon-192.svg" />
   <link rel="apple-touch-icon" href="icons/icon-192.svg" />
   <link rel="manifest" href="manifest.json" />
+  <link rel="alternate" type="application/rss+xml" title="renigman 的技术博客" href="feed.xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
+  <script>
+    (function(){
+      var t = localStorage.getItem('theme')
+      if (!t) { t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light' }
+      document.documentElement.setAttribute('data-theme', t)
+    })()
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "renigman",
+    "givenName": "Mingyuan",
+    "familyName": "Chen",
+    "jobTitle": "生物信息学研究员",
+    "description": "拥有 6 年生物信息学科研经验，专注于高通量测序数据分析、基因组变异检测与单细胞转录组研究。",
+    "url": "https://unplage.github.io/renigman/",
+    "email": "renigman@example.com",
+    "knowsAbout": ["生物信息学","基因组学","单细胞转录组","RNA-seq","NGS","计算生物学"]
+  }
+  </script>
   <title>renigman · 生物信息学</title>
 </head>
 <body>
@@ -43,7 +66,7 @@
     </div>
   </nav>
 
-  <main>
+  <main id="mainContent">
     <section id="hero" class="section hero-section"></section>
     <section id="about" class="section"></section>
     <section id="skills" class="section"></section>
@@ -53,12 +76,53 @@
     <section id="contact" class="section"></section>
   </main>
 
+  <div id="blogReader" class="blog-reader" style="display:none">
+    <div class="reader-nav">
+      <button id="readerClose" class="btn btn-secondary btn-sm">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+        返回博客
+      </button>
+      <span id="readerTitle" class="reader-title-bar"></span>
+    </div>
+    <div class="reader-body">
+      <div id="readerContent" class="reader-content">
+        <div class="skeleton">
+          <div class="skeleton-line" style="width:60%"></div>
+          <div class="skeleton-line" style="width:40%"></div>
+          <div class="skeleton-line"></div>
+          <div class="skeleton-line"></div>
+          <div class="skeleton-line" style="width:75%"></div>
+        </div>
+      </div>
+      <div id="giscusContainer" class="giscus-container"></div>
+    </div>
+  </div>
+
+  <div id="searchOverlay" class="search-overlay" style="display:none">
+    <div class="search-modal">
+      <div class="search-header">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input id="searchInput" class="search-input" type="text" placeholder="搜索博客文章..." autocomplete="off" />
+        <span class="search-hint">ESC 关闭</span>
+      </div>
+      <div id="searchResults" class="search-results"></div>
+    </div>
+  </div>
+
   <footer class="footer">
     <div class="footer-inner">
+      <div class="footer-links">
+        <a href="feed.xml" target="_blank" rel="noopener">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg>
+          RSS 订阅
+        </a>
+        <a href="sitemap.xml" target="_blank" rel="noopener">Sitemap</a>
+      </div>
       <p>&copy; 2026 renigman. Built with ❤</p>
     </div>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <script>
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('sw.js')
