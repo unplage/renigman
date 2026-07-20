@@ -1110,6 +1110,20 @@ img { max-width: 100%; display: block; }
   padding: 8px 0;
 }
 
+/* ── All Blogs List ── */
+.all-blogs-content {
+  padding-top: 8px;
+}
+.all-blogs-content .blog-card {
+  cursor: pointer;
+  transition: all var(--transition);
+}
+.all-blogs-content .blog-card:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-hover);
+  transform: translateY(-2px);
+}
+
 /* ── Search Overlay ── */
 .search-overlay {
   position: fixed;

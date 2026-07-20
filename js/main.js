@@ -30,6 +30,12 @@
     document.getElementById('readerClose').addEventListener('click', function () {
       window.closeBlogReader()
     })
+    document.getElementById('allBlogsClose').addEventListener('click', function () {
+      window.__blogShowingAll = false
+      document.getElementById('blogFullList').style.display = 'none'
+      document.getElementById('mainContent').style.display = ''
+      history.replaceState(null, '', '#')
+    })
   }
 
   function initTheme() {
@@ -107,16 +113,27 @@
     function handleHash() {
       var hash = window.location.hash.slice(1)
 
+      if (hash === 'blog/all') {
+        window.showAllBlogs()
+        document.getElementById('navbar').style.display = ''
+        return
+      }
+
       if (hash.indexOf('blog/') === 0) {
         var slug = hash.slice(5)
         if (slug) {
+          if (window.__blogShowingAll) {
+            document.getElementById('blogFullList').style.display = 'none'
+          }
           window.loadBlogPost(slug)
           document.getElementById('navbar').style.display = ''
           return
         }
       }
 
+      window.__blogShowingAll = false
       window.closeBlogReader()
+      document.getElementById('blogFullList').style.display = 'none'
     }
 
     window.addEventListener('hashchange', handleHash)
@@ -135,7 +152,15 @@
       if (e.key === 'Escape') {
         var overlay = document.getElementById('searchOverlay')
         if (overlay.style.display !== 'none') {
-          closeSearch()
+          closeSearch(); return
+        }
+        var fullList = document.getElementById('blogFullList')
+        if (fullList.style.display !== 'none') {
+          window.__blogShowingAll = false
+          fullList.style.display = 'none'
+          document.getElementById('mainContent').style.display = ''
+          history.replaceState(null, '', '#')
+          return
         }
         var reader = document.getElementById('blogReader')
         if (reader.style.display !== 'none') {
@@ -146,8 +171,7 @@
   }
 
   function initSearch() {
-    fetch('blog/index.json')
-      .then(function (r) { return r.json() })
+    window.getBlogIndex()
       .then(function (posts) {
         blogPostsCache = posts
         document.getElementById('searchInput').addEventListener('input', function () {
@@ -185,13 +209,21 @@
       container.innerHTML = '<div class="search-empty">无匹配结果</div>'
       return
     }
-    container.innerHTML = results.map(function (p) {
+    var MAX_RESULTS = 20
+    var showed = results.slice(0, MAX_RESULTS)
+    container.innerHTML = showed.map(function (p) {
       return '\
         <a href="#blog/' + p.slug + '" class="search-result-item" onclick="closeSearch()">\
           <div class="search-result-title">' + p.title + '</div>\
           <div class="search-result-excerpt">' + p.excerpt + '</div>\
         </a>'
     }).join('')
+    if (results.length > MAX_RESULTS) {
+      container.insertAdjacentHTML('beforeend', '\
+        <div style="padding:8px 20px;font-size:0.82rem;color:var(--text-muted)">\
+          共 ' + results.length + ' 条结果，显示前 ' + MAX_RESULTS + ' 条\
+        </div>')
+    }
   }
 
   if (document.readyState === 'loading') {
