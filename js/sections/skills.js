@@ -13,7 +13,7 @@ window.renderSkills = function (container) {
     <div class="section-header">
       <span class="section-tag">Skills</span>
       <h2 class="section-title">专业技能</h2>
-      <p class="section-subtitle">计算生物学 · 多组学分析 · 流程开发</p>
+      <p class="section-subtitle">抗体工程 · 生物信息学 · AI 智能体</p>
     </div>
     <div class="skills-grid">
       ${data.map(cat => `

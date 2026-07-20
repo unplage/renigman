@@ -4,7 +4,7 @@ window.renderProjects = function (container) {
     <div class="section-header">
       <span class="section-tag">Projects</span>
       <h2 class="section-title">研究成果</h2>
-      <p class="section-subtitle">生信分析流程 · 数据库 · 可视化工具</p>
+      <p class="section-subtitle">抗体分析 · AI 应用 · 开源工具</p>
     </div>
     <div class="projects-grid">
       ${data.map(p => `
