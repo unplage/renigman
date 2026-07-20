@@ -44,7 +44,7 @@ self.addEventListener('activate', function (event) {
 self.addEventListener('fetch', function (event) {
   var url = new URL(event.request.url)
 
-  if (url.pathname.match(/^\/blog\//)) {
+  if (url.pathname.includes('/blog/')) {
     event.respondWith(
       caches.match(event.request).then(function (cached) {
         var fetched = fetch(event.request).then(function (response) {
