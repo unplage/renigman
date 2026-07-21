@@ -60,30 +60,7 @@ window.renderContact = function (container) {
           </div>
         </div>
       </div>
-      <div class="glass-card" style="padding:24px">
-        <h3 class="glass-card-title" style="margin-bottom:16px">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2 11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg>
-          发送消息
-        </h3>
-        <form class="contact-form" action="https://formspree.io/f/your-form-id" method="POST">
-          <div class="form-group">
-            <label class="form-label" for="name">姓名</label>
-            <input class="form-input" id="name" name="name" type="text" placeholder="你的名字" required />
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="email">邮箱</label>
-            <input class="form-input" id="email" name="_replyto" type="email" placeholder="your@email.com" required />
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="message">消息</label>
-            <textarea class="form-textarea" id="message" name="message" placeholder="写下你想说的..." required></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary" style="align-self:flex-start">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-            发送消息
-          </button>
-        </form>
-      </div>
+
     </div>
   `
   } catch (e) {

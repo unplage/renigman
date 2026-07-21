@@ -1,7 +1,7 @@
 [
   {
     "slug": "rna-seq-guide",
-    "title": "单细胞 RNA-seq 分析流程选型指南",
+    "title": "单细胞 RNA-seq 分析流程选型指南（仅为占位文章）",
     "date": "2026-06-20",
     "excerpt": "深入对比 Seurat V5、Scanpy 和 Monocle 3 的核心差异，结合实际项目经验给出最适合不同场景的技术选型建议。",
     "tags": ["单细胞", "RNA-seq", "流程选型"],
@@ -9,18 +9,18 @@
   },
   {
     "slug": "nextflow-practice",
-    "title": "Nextflow 实战：构建可复用的生信分析流程",
+    "title": "Nextflow 实战：构建可复用的生信分析流程（仅为占位文章）",
     "date": "2026-04-12",
     "excerpt": "从 DSL2 语法、容器化到 CI/CD 集成，手把手教你构建生产级 NGS 分析流程的最佳实践。",
     "tags": ["Nextflow", "流程开发", "Docker"],
     "filename": "nextflow-practice.md"
   },
   {
-    "slug": "gatk-best-practice",
-    "title": "变异检测的 GATK 最佳实践解析",
-    "date": "2026-02-28",
-    "excerpt": "详解 GATK HaplotypeCaller 原理、VQSR 流程设计要点和常见错误排查方法。",
-    "tags": ["GATK", "变异检测", "WGS"],
-    "filename": "gatk-best-practice.md"
+    "slug": "self-pension",
+    "title": "renigman的些许思考",
+    "date": "2026-07-21",
+    "excerpt": "不定期更新个人的一些不成熟思考或想法，强迫自己在纷繁的世界里保持思考是很重要的事。",
+    "tags": ["阅读", "思考", "改进", "早起", "专注", "从容"],
+    "filename": "self-pension.md"
   }
 ]

@@ -117,10 +117,28 @@ window.loadBlogPost = function (slug) {
 
   titleBar.textContent = ''
 
+  var sortedPosts = []
+  var currentIndex = -1
+
+  var readerBody = document.querySelector('.reader-body')
+  var layout = readerBody.querySelector('.reader-layout')
+  if (!layout) {
+    layout = document.createElement('div')
+    layout.className = 'reader-layout'
+    readerBody.insertBefore(layout, contentDiv)
+    layout.appendChild(contentDiv)
+    var tocNav = document.createElement('nav')
+    tocNav.id = 'readerToc'
+    tocNav.className = 'reader-toc'
+    layout.appendChild(tocNav)
+  }
+
   window.getBlogIndex().then(function (posts) {
+    var sorted = posts.slice().sort(function (a, b) { return b.date.localeCompare(a.date) })
+    sortedPosts = sorted
     var found = null
-    for (var i = 0; i < posts.length; i++) {
-      if (posts[i].slug === slug) { found = posts[i]; break }
+    for (var i = 0; i < sorted.length; i++) {
+      if (sorted[i].slug === slug) { found = sorted[i]; currentIndex = i; break }
     }
     if (!found) throw new Error('not found')
     return found
@@ -168,9 +186,65 @@ window.loadBlogPost = function (slug) {
       block.style.display = 'block'
       block.style.overflowX = 'auto'
     })
+
+    contentDiv.querySelectorAll('h2').forEach(function (h2, idx) {
+      var baseId = h2.textContent.trim().toLowerCase().replace(/[^\w\u4e00-\u9fff]+/g, '-').replace(/^-+|-+$/g, '')
+      if (!baseId) baseId = 'heading-' + idx
+      var suffix = ''
+      var count = 1
+      while (document.getElementById(baseId + suffix)) { suffix = '-' + (count++) }
+      h2.id = baseId + suffix
+    })
+
+    renderTOC()
+    var navHtml = renderPostNav(sortedPosts, currentIndex)
+    if (navHtml) contentDiv.insertAdjacentHTML('beforeend', navHtml)
   }).catch(function () {
     contentDiv.innerHTML = '<p style="color:var(--text-muted);text-align:center">文章加载失败</p>'
   })
+}
+
+function renderTOC() {
+  var toc = document.getElementById('readerToc')
+  if (!toc) return
+  var headings = document.querySelectorAll('#readerContent h2')
+  if (headings.length === 0) {
+    toc.style.display = 'none'
+    return
+  }
+  toc.style.display = ''
+  var items = []
+  headings.forEach(function (h2) {
+    items.push('<li class="toc-item"><a href="#" class="toc-link" data-target="' + h2.id + '">' + h2.textContent + '</a></li>')
+  })
+  toc.innerHTML = '<div class="toc-title">目录</div><ul class="toc-list">' + items.join('') + '</ul>'
+  toc.querySelectorAll('.toc-link').forEach(function (link) {
+    link.addEventListener('click', function (e) {
+      e.preventDefault()
+      var target = document.getElementById(this.getAttribute('data-target'))
+      if (target) target.scrollIntoView({ behavior: 'smooth' })
+    })
+  })
+}
+
+function renderPostNav(posts, currentIndex) {
+  if (!posts || currentIndex < 0) return ''
+  var prev = currentIndex < posts.length - 1 ? posts[currentIndex + 1] : null
+  var next = currentIndex > 0 ? posts[currentIndex - 1] : null
+  if (!prev && !next) return ''
+  var html = '<nav class="post-nav">'
+  if (prev) {
+    html += '<a href="#blog/' + prev.slug + '" class="post-nav-link post-nav-prev">' +
+      '<span class="post-nav-direction">← 上一篇</span>' +
+      '<span class="post-nav-title">' + prev.title + '</span></a>'
+  }
+  if (next) {
+    html += '<a href="#blog/' + next.slug + '" class="post-nav-link post-nav-next">' +
+      '<span class="post-nav-direction">下一篇 →</span>' +
+      '<span class="post-nav-title">' + next.title + '</span></a>'
+  }
+  html += '</nav>'
+  return html
 }
 
 window.closeBlogReader = function () {
@@ -195,6 +269,5 @@ window.closeBlogReader = function () {
     var twDesc = document.querySelector('meta[name="twitter:description"]')
     if (twTitle) twTitle.setAttribute('content', 'renigman · 生物信息学')
     if (twDesc) twDesc.setAttribute('content', 'renigman · 生物信息学个人主页')
-    history.replaceState(null, '', '#')
   }
 }

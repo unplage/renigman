@@ -2,7 +2,7 @@ const CONTENT = {
   hero: {
     name: 'renigman',
     title: '抗体发现科学家 · 生物信息学专家',
-    tagline: '深耕抗体发现领域 7 年，融合 AI 与生物信息学驱动下一代抗体药物研发',
+    tagline: '深耕抗体发现领域 9 年，融合 AI 与生物信息学驱动下一代抗体药物研发',
     badge: '\uD83E\uDDEC 专注于抗体发现与工程化改造',
     cta: {
       primary: { text: '研究成果', href: '#projects' },
@@ -38,7 +38,7 @@ const CONTENT = {
     {
       category: '生物信息数据处理',
       icon: 'dna',
-      tags: ['NGS分析', '抗体序列提取', 'IgBLAST', '靶点调研'],
+      tags: ['NGS分析', '抗体序列提取', 'IgBLAST', '靶点调研', 'af3', 'pymol', 'Wemol'],
       items: [
         { name: 'NGS 抗体库分析', level: 92 },
         { name: 'IgBLAST / IMGT 分析', level: 92 },
@@ -49,7 +49,7 @@ const CONTENT = {
     {
       category: '重组抗体库设计',
       icon: 'tool',
-      tags: ['单重链', '单轻链', '共重链', '共轻链'],
+      tags: ['单重链', '单轻链', '共重链', '共轻链', 'alpacaVHH'],
       items: [
         { name: '单重链抗体库设计', level: 90 },
         { name: '单轻链抗体库设计', level: 88 },
@@ -60,7 +60,7 @@ const CONTENT = {
     {
       category: 'AI 智能体开发',
       icon: 'brain',
-      tags: ['Python', 'LLM', 'BioPython', 'opencode', '自动化'],
+      tags: ['Python', 'LLM', 'BioPython', 'opencode', 'ollama', 'nanobot', 'codespace'],
       items: [
         { name: 'AI 智能体程序开发', level: 90 },
         { name: '测序分析自动化', level: 88 },
@@ -71,7 +71,7 @@ const CONTENT = {
     {
       category: '抗体药物研发',
       icon: 'server',
-      tags: ['Phage-Display', 'ELISA', 'FACS', 'BLI'],
+      tags: ['Phage-Display', 'ELISA', 'FACS', 'BLI', 'Proteinmpnn', 'TwoinOne Ab'],
       items: [
         { name: '噬菌体淘选 (Panning)', level: 92 },
         { name: '蛋白表达与纯化', level: 85 },
@@ -85,7 +85,7 @@ const CONTENT = {
     {
       title: 'bio-box 抗体分析平台',
       desc: '开源生物分析相关的代码，包括靶点调研、引物Tm值计算、igblast构建相关，持续更新。',
-      tech: ['Python', 'BioPython', 'IgBLAST', '生物信息学'],
+      tech: ['Python', 'BioPython', 'IgBLAST', 'snapgene', '生物信息学'],
       emoji: '\uD83E\uDDEC',
       liveUrl: 'https://github.com/unplage/bio-box',
       codeUrl: 'https://github.com/unplage/bio-box',
@@ -93,9 +93,9 @@ const CONTENT = {
     {
       title: 'KmWord 智能单词学习',
       desc: '基于 PWA 的智能单词学习应用，模拟扇贝单词体验，集成free dict api、韦氏词典api、智谱GLM-4.7-flash api、纯正英英释义、原生 TTS 语音朗读、离线学习与进度追踪功能。',
-      tech: ['JavaScript', 'PWA', 'Android', 'WebView', 'TTS'],
+      tech: ['JavaScript', 'glm-4.7-flash', 'Android', 'WebView', 'TTS'],
       emoji: '\uD83D\uDCDA',
-      liveUrl: 'https://github.com/unplage/kmword',
+      liveUrl: 'https://unplage.github.io/kmword',
       codeUrl: 'https://github.com/unplage/kmword',
     },
     {
@@ -103,7 +103,7 @@ const CONTENT = {
       desc: '轻量级本地记账 PWA，模拟海豚记账本，支持收支分类管理、统计图表可视化、数据本地持久化存储，无需网络即可完整使用。',
       tech: ['JavaScript', 'IndexedDB', 'PWA', 'HTML/CSS'],
       emoji: '\uD83D\uDCB0',
-      liveUrl: 'https://github.com/unplage/fundnote',
+      liveUrl: 'https://unplage.github.io/fundnote',
       codeUrl: 'https://github.com/unplage/fundnote',
     },
     {
@@ -111,7 +111,7 @@ const CONTENT = {
       desc: '基于 IndexedDB 的离线记事本 PWA，模拟素记笔记体验，支持分类管理、Markdown 渲染、搜索过滤、JSON/Markdown 导入导出及完整数据备份恢复。',
       tech: ['JavaScript', 'IndexedDB', 'PWA', 'Markdown'],
       emoji: '\uD83D\uDCDD',
-      liveUrl: 'https://github.com/unplage/localnote1',
+      liveUrl: 'https://unplage.github.io/localnote1',
       codeUrl: 'https://github.com/unplage/localnote1',
     },
     {
@@ -119,15 +119,15 @@ const CONTENT = {
       desc: '轻量级 Web 浏览器工具，支持多种搜索引擎、支持智谱AI聚合分析、支持创建不同提示词模块、支持多种大模型厂商api。',
       tech: ['JavaScript', 'PWA', 'HTML/CSS'],
       emoji: '\uD83C\uDF10',
-      liveUrl: 'https://github.com/unplage/browser',
+      liveUrl: 'https://unplage.github.io/browser',
       codeUrl: 'https://github.com/unplage/browser',
     },
     {
-      title: 'P2P Chat 点对点聊天',
+      title: 'P2P-Chat 点对点聊天',
       desc: '基于 WebRTC 的点对点网页聊天应用，无需服务器中转，实现端到端即时通讯，亦可便捷进行文件无线传输。',
       tech: ['HTML', 'JavaScript', 'WebRTC', 'PWA'],
       emoji: '\uD83D\uDCAC',
-      liveUrl: 'https://github.com/unplage/p2p-chat',
+      liveUrl: 'https://unplage.github.io/p2p-chat',
       codeUrl: 'https://github.com/unplage/p2p-chat',
     },
     {
@@ -135,7 +135,7 @@ const CONTENT = {
       desc: '天气应用，集成和风天气 API，支持实时天气查询、天气预警、实时降雨预测、空气质量等。',
       tech: ['HTML', 'JavaScript', 'API', 'CSS'],
       emoji: '\uD83C\uDF26\uFE0F',
-      liveUrl: 'https://github.com/unplage/weather',
+      liveUrl: 'https://unplage.github.io/weather',
       codeUrl: 'https://github.com/unplage/weather',
     },
     {
@@ -143,7 +143,7 @@ const CONTENT = {
       desc: '菌落计数工具，基于YOLO26模型进行真实世界训练，内置常见物品识别以及菌落计数，支持图片上传与自动识别，快速准确统计培养皿中的菌落数量。',
       tech: ['HTML', 'JavaScript', '图像处理', 'PWA'],
       emoji: '\uD83D\uDD2C',
-      liveUrl: 'https://github.com/unplage/cfu_count',
+      liveUrl: 'https://unplage.github.io/cfu_count',
       codeUrl: 'https://github.com/unplage/cfu_count',
     },
     {

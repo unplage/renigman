@@ -30,12 +30,18 @@
 
     document.getElementById('readerClose').addEventListener('click', function () {
       window.closeBlogReader()
+      if (!window.__blogShowingAll) {
+        history.replaceState(null, '', '#blog')
+        var blogSection = document.getElementById('blog')
+        if (blogSection) blogSection.scrollIntoView({ behavior: 'smooth' })
+      }
     })
     document.getElementById('allBlogsClose').addEventListener('click', function () {
       window.__blogShowingAll = false
       document.getElementById('blogFullList').style.display = 'none'
       document.getElementById('mainContent').style.display = ''
-      history.replaceState(null, '', '#')
+      history.replaceState(null, '', '#blog')
+      document.getElementById('blog').scrollIntoView({ behavior: 'smooth' })
     })
   }
 
@@ -141,6 +147,10 @@
       window.__blogShowingAll = false
       window.closeBlogReader()
       document.getElementById('blogFullList').style.display = 'none'
+      if (hash) {
+        var target = document.getElementById(hash)
+        if (target) target.scrollIntoView({ behavior: 'smooth' })
+      }
     }
 
     window.addEventListener('hashchange', handleHash)

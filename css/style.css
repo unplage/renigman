@@ -699,7 +699,7 @@ img { max-width: 100%; display: block; }
 /* ── Contact ── */
 .contact-content {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 24px;
 }
 
@@ -773,54 +773,6 @@ img { max-width: 100%; display: block; }
   transform: translateY(-2px);
 }
 
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-.form-group {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.form-label {
-  font-size: 0.82rem;
-  font-weight: 500;
-  color: var(--text-secondary);
-}
-
-.form-input,
-.form-textarea {
-  width: 100%;
-  padding: 12px 16px;
-  border-radius: var(--radius-sm);
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  color: var(--text);
-  font-family: inherit;
-  font-size: 0.92rem;
-  transition: all var(--transition);
-  outline: none;
-}
-
-.form-input:focus,
-.form-textarea:focus {
-  border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.15);
-}
-
-.form-input::placeholder,
-.form-textarea::placeholder {
-  color: var(--text-muted);
-}
-
-.form-textarea {
-  min-height: 120px;
-  resize: vertical;
-}
-
 /* ── Footer ── */
 .footer {
   position: relative;
@@ -868,8 +820,7 @@ img { max-width: 100%; display: block; }
   .hero-name { font-size: 2rem; }
   .hero-title { font-size: 1rem; }
 
-  .about-grid,
-  .contact-content {
+  .about-grid {
     grid-template-columns: 1fr;
   }
 
@@ -1083,6 +1034,118 @@ img { max-width: 100%; display: block; }
   margin: 16px 0;
 }
 
+/* ── Reader Layout ── */
+.reader-layout {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.reader-layout .reader-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.reader-toc {
+  position: sticky;
+  top: 120px;
+  width: 200px;
+  flex-shrink: 0;
+  padding: 16px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  max-height: calc(100vh - 140px);
+  overflow-y: auto;
+}
+
+.toc-title {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
+
+.toc-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.toc-item {
+  margin-bottom: 4px;
+}
+
+.toc-link {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+  display: block;
+  padding: 4px 0;
+  transition: color var(--transition);
+  line-height: 1.4;
+}
+
+.toc-link:hover {
+  color: var(--primary-light);
+}
+
+/* ── Post Navigation ── */
+.post-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 40px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+
+.post-nav-link {
+  flex: 1;
+  text-decoration: none;
+  padding: 16px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  transition: all var(--transition);
+  max-width: 50%;
+}
+
+.post-nav-link:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-hover);
+}
+
+.post-nav-next {
+  text-align: right;
+  margin-left: auto;
+}
+
+.post-nav-direction {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+.post-nav-title {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.post-nav-link:hover .post-nav-title {
+  color: var(--primary-light);
+}
+
 /* ── giscus ── */
 .giscus-container {
   margin-top: 32px;
@@ -1250,6 +1313,27 @@ img { max-width: 100%; display: block; }
   .reader-content h1 { font-size: 1.4rem; }
   .reader-content h2 { font-size: 1.15rem; }
   .reader-nav { top: 56px; }
+
+  .reader-layout {
+    flex-direction: column;
+  }
+
+  .reader-toc {
+    display: none;
+  }
+
+  .post-nav {
+    flex-direction: column;
+  }
+
+  .post-nav-link {
+    max-width: none;
+  }
+
+  .post-nav-next {
+    text-align: left;
+    margin-left: 0;
+  }
 }
 
 @media (max-width: 480px) {
