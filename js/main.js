@@ -1,5 +1,6 @@
 ;(function () {
   var blogPostsCache = []
+  var searchTimer = null
 
   function init() {
     var sections = {
@@ -78,7 +79,13 @@
       })
       links.forEach(function (link) {
         var href = link.getAttribute('href')
-        link.classList.toggle('active', href === '#' + current)
+        var isActive = href === '#' + current
+        link.classList.toggle('active', isActive)
+        if (isActive) {
+          link.setAttribute('aria-current', 'page')
+        } else {
+          link.removeAttribute('aria-current')
+        }
       })
     }
     window.addEventListener('scroll', updateActive, { passive: true })
@@ -175,14 +182,18 @@
       .then(function (posts) {
         blogPostsCache = posts
         document.getElementById('searchInput').addEventListener('input', function () {
-          var q = this.value.toLowerCase().trim()
-          if (!q) { document.getElementById('searchResults').innerHTML = ''; return }
-          var results = blogPostsCache.filter(function (p) {
-            return p.title.toLowerCase().indexOf(q) !== -1 ||
-                   p.excerpt.toLowerCase().indexOf(q) !== -1 ||
-                   p.tags.some(function (t) { return t.toLowerCase().indexOf(q) !== -1 })
-          })
-          renderSearchResults(results)
+          clearTimeout(searchTimer)
+          var self = this
+          searchTimer = setTimeout(function () {
+            var q = self.value.toLowerCase().trim()
+            if (!q) { document.getElementById('searchResults').innerHTML = ''; return }
+            var results = blogPostsCache.filter(function (p) {
+              return p.title.toLowerCase().indexOf(q) !== -1 ||
+                     p.excerpt.toLowerCase().indexOf(q) !== -1 ||
+                     p.tags.some(function (t) { return t.toLowerCase().indexOf(q) !== -1 })
+            })
+            renderSearchResults(results)
+          }, 200)
         })
       })
   }

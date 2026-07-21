@@ -1,4 +1,5 @@
 window.renderAbout = function (container) {
+  try {
   const d = CONTENT.about
   container.innerHTML = `
     <div class="section-header">
@@ -24,4 +25,8 @@ window.renderAbout = function (container) {
       </div>
     </div>
   `
+  } catch (e) {
+    container.innerHTML = '<div style="text-align:center;padding:40px;color:var(--text-muted)">模块加载失败</div>'
+    console.error('renderAbout:', e)
+  }
 }

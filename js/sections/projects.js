@@ -1,4 +1,5 @@
 window.renderProjects = function (container) {
+  try {
   const data = CONTENT.projects
   container.innerHTML = `
     <div class="section-header">
@@ -29,4 +30,8 @@ window.renderProjects = function (container) {
       `).join('')}
     </div>
   `
+  } catch (e) {
+    container.innerHTML = '<div style="text-align:center;padding:40px;color:var(--text-muted)">模块加载失败</div>'
+    console.error('renderProjects:', e)
+  }
 }

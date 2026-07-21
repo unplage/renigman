@@ -176,6 +176,7 @@ const CONTENT = {
 
   contact: {
     email: 'jmxstudent@163.com',
+    phone: '未公开',
     location: '中国 · 广东东莞',
     social: {
       github: 'https://github.com/unplage',

@@ -1,4 +1,4 @@
-var CACHE_NAME = 'renigman-v4'
+var CACHE_NAME = 'renigman-v5'
 
 var PRECACHE_URLS = [
   '.',
@@ -43,6 +43,8 @@ self.addEventListener('activate', function (event) {
 
 self.addEventListener('fetch', function (event) {
   var url = new URL(event.request.url)
+
+  if (url.origin !== location.origin) return
 
   if (url.pathname.includes('/blog/')) {
     event.respondWith(

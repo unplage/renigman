@@ -8,6 +8,7 @@ const skillIconMap = {
 }
 
 window.renderSkills = function (container) {
+  try {
   const data = CONTENT.skills
   container.innerHTML = `
     <div class="section-header">
@@ -39,6 +40,10 @@ window.renderSkills = function (container) {
       `).join('')}
     </div>
   `
+  } catch (e) {
+    container.innerHTML = '<div style="text-align:center;padding:40px;color:var(--text-muted)">模块加载失败</div>'
+    console.error('renderSkills:', e)
+  }
 }
 
 window.animateSkills = function () {

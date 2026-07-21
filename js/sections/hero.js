@@ -1,4 +1,5 @@
 window.renderHero = function (container) {
+  try {
   const d = CONTENT.hero
   container.innerHTML = `
     <div class="hero-content">
@@ -26,4 +27,8 @@ window.renderHero = function (container) {
       </div>
     </div>
   `
+  } catch (e) {
+    container.innerHTML = '<div style="text-align:center;padding:40px;color:var(--text-muted)">模块加载失败</div>'
+    console.error('renderHero:', e)
+  }
 }

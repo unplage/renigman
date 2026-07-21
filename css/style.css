@@ -109,6 +109,7 @@ img { max-width: 100%; display: block; }
   -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--border);
   transition: background var(--transition), border-color var(--transition);
+  will-change: transform;
 }
 
 [data-theme="light"] .navbar {
@@ -400,6 +401,7 @@ img { max-width: 100%; display: block; }
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   transition: all var(--transition);
+  will-change: transform;
 }
 
 .glass-card:hover {
@@ -621,6 +623,7 @@ img { max-width: 100%; display: block; }
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   transition: all var(--transition);
+  will-change: transform;
 }
 
 .timeline-content:hover {
@@ -948,6 +951,7 @@ img { max-width: 100%; display: block; }
   backdrop-filter: blur(20px);
   line-height: 1.8;
   color: var(--text);
+  will-change: transform;
 }
 
 .reader-content h1 {

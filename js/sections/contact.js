@@ -1,4 +1,5 @@
 window.renderContact = function (container) {
+  try {
   var d = CONTENT.contact
   container.innerHTML = `
     <div class="section-header">
@@ -85,4 +86,8 @@ window.renderContact = function (container) {
       </div>
     </div>
   `
+  } catch (e) {
+    container.innerHTML = '<div style="text-align:center;padding:40px;color:var(--text-muted)">模块加载失败</div>'
+    console.error('renderContact:', e)
+  }
 }

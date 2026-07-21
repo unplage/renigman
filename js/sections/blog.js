@@ -1,6 +1,14 @@
+function fetchWithTimeout(url, ms) {
+  return new Promise(function (resolve, reject) {
+    var controller = new AbortController()
+    setTimeout(function () { controller.abort() }, ms)
+    fetch(url, { signal: controller.signal }).then(resolve, reject)
+  })
+}
+
 window.getBlogIndex = function () {
   if (window.__blogIndexPromise) return window.__blogIndexPromise
-  window.__blogIndexPromise = fetch('blog/index.json').then(function (r) { return r.json() })
+  window.__blogIndexPromise = fetchWithTimeout('blog/index.json', 8000).then(function (r) { return r.json() })
   return window.__blogIndexPromise
 }
 
@@ -24,6 +32,7 @@ function renderBlogCards(posts, containerId) {
 }
 
 window.renderBlog = function (container) {
+  try {
   var skeleton = '\
     <div class="blog-grid">\
       <div class="glass-card blog-card"><div class="skeleton"><div class="skeleton-line" style="width:30%"></div><div class="skeleton-line" style="width:90%"></div><div class="skeleton-line" style="width:60%"></div></div></div>\
@@ -57,6 +66,10 @@ window.renderBlog = function (container) {
   }).catch(function () {
     document.getElementById('blogList').innerHTML = '<p style="color:var(--text-muted);text-align:center">暂无文章</p>'
   })
+  } catch (e) {
+    container.innerHTML = '<div style="text-align:center;padding:40px;color:var(--text-muted)">博客模块加载失败</div>'
+    console.error('renderBlog:', e)
+  }
 }
 
 window.showAllBlogs = function () {
@@ -132,7 +145,18 @@ window.loadBlogPost = function (slug) {
       'author': { '@type': 'Person', 'name': 'renigman' },
     })
 
-    return fetch('blog/posts/' + meta.filename).then(function (r) { return r.text() })
+    var ogTitle = document.querySelector('meta[property="og:title"]')
+    var ogDesc = document.querySelector('meta[property="og:description"]')
+    var ogUrl = document.querySelector('meta[property="og:url"]')
+    var twTitle = document.querySelector('meta[name="twitter:title"]')
+    var twDesc = document.querySelector('meta[name="twitter:description"]')
+    if (ogTitle) ogTitle.setAttribute('content', meta.title + ' · renigman')
+    if (ogDesc) ogDesc.setAttribute('content', meta.excerpt)
+    if (ogUrl) ogUrl.setAttribute('content', 'https://unplage.github.io/renigman/#blog/' + slug)
+    if (twTitle) twTitle.setAttribute('content', meta.title + ' · renigman')
+    if (twDesc) twDesc.setAttribute('content', meta.excerpt)
+
+    return fetchWithTimeout('blog/posts/' + meta.filename, 8000).then(function (r) { return r.text() })
   }).then(function (md) {
     if (typeof marked !== 'undefined' && marked.parse) {
       contentDiv.innerHTML = marked.parse(md)
@@ -161,6 +185,16 @@ window.closeBlogReader = function () {
     document.getElementById('mainContent').style.display = ''
     document.title = 'renigman · 生物信息学'
     document.querySelector('meta[name="description"]').setAttribute('content', 'renigman · 生物信息学个人主页')
+    var ogTitle = document.querySelector('meta[property="og:title"]')
+    var ogDesc = document.querySelector('meta[property="og:description"]')
+    var ogUrl = document.querySelector('meta[property="og:url"]')
+    if (ogTitle) ogTitle.setAttribute('content', 'renigman · 生物信息学')
+    if (ogDesc) ogDesc.setAttribute('content', 'renigman · 生物信息学个人主页')
+    if (ogUrl) ogUrl.setAttribute('content', 'https://unplage.github.io/renigman/')
+    var twTitle = document.querySelector('meta[name="twitter:title"]')
+    var twDesc = document.querySelector('meta[name="twitter:description"]')
+    if (twTitle) twTitle.setAttribute('content', 'renigman · 生物信息学')
+    if (twDesc) twDesc.setAttribute('content', 'renigman · 生物信息学个人主页')
     history.replaceState(null, '', '#')
   }
 }
