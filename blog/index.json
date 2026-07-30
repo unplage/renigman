@@ -8,19 +8,19 @@
     "filename": "rna-seq-guide.md"
   },
   {
-    "slug": "nextflow-practice",
-    "title": "Nextflow 实战：构建可复用的生信分析流程（仅为占位文章）",
-    "date": "2026-04-12",
-    "excerpt": "从 DSL2 语法、容器化到 CI/CD 集成，手把手教你构建生产级 NGS 分析流程的最佳实践。",
-    "tags": ["Nextflow", "流程开发", "Docker"],
-    "filename": "nextflow-practice.md"
+    "slug": "reading-plan",
+    "title": "阅读推荐及感悟",
+    "date": "2026-07-30",
+    "excerpt": "不定期更新一些好书推荐，学习是验证人生复利的过程。",
+    "tags": ["阅读", "思考", "改进"],
+    "filename": "reading-plan.md"
   },
   {
     "slug": "self-ponder",
     "title": "renigman的些许思考",
-    "date": "2026-07-21",
+    "date": "2026-07-30",
     "excerpt": "不定期更新个人的一些不成熟思考或想法，强迫自己在纷繁的世界里保持思考是很重要的事。",
-    "tags": ["阅读", "思考", "改进", "早起", "专注", "从容"],
+    "tags": ["早起", "专注", "从容"],
     "filename": "self-ponder.md"
   }
 ]
