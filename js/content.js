@@ -99,8 +99,16 @@ const CONTENT = {
       codeUrl: 'https://github.com/unplage/cfu_count',
     },
     {
+      title: 'Mu-Bu 幕布笔记',
+      desc: '幕布风格大纲笔记工具，支持层级结构整理与思维导图式内容管理，支持桌面端与移动端，可将设计进行下载或分享。',
+      tech: ['HTML', 'JavaScript', 'PWA'],
+      emoji: '\uD83D\uDCCB',
+      liveUrl: 'https://unplage.github.io/mu-bu',
+      codeUrl: 'https://github.com/unplage/mu-bu',
+    },
+    {
       title: 'KmWord 智能单词学习',
-      desc: '基于 PWA 的智能单词学习应用，模拟扇贝单词体验，集成free dict api、韦氏词典api、智谱GLM-4.7-flash api、纯正英英释义、原生 TTS 语音朗读、离线学习与进度追踪功能。',
+      desc: '基于 PWA 的智能单词学习应用，模拟扇贝单词体验，集成free dict api、韦氏词典api、默认智谱GLM-4.7-flash api、纯正英英释义、可导入文章进行阅读，原生 TTS + mimo-v2.5-tts语音朗读、离线学习与进度追踪功能。',
       tech: ['JavaScript', 'glm-4.7-flash', 'Android', 'WebView', 'TTS'],
       emoji: '\uD83D\uDCDA',
       liveUrl: 'https://unplage.github.io/kmword',
@@ -153,14 +161,6 @@ const CONTENT = {
       emoji: '\uD83C\uDF26\uFE0F',
       liveUrl: 'https://unplage.github.io/weather',
       codeUrl: 'https://github.com/unplage/weather',
-    },
-    {
-      title: 'Mu-Bu 幕布笔记',
-      desc: '幕布风格大纲笔记工具，支持层级结构整理与思维导图式内容管理。',
-      tech: ['HTML', 'JavaScript', 'PWA'],
-      emoji: '\uD83D\uDCCB',
-      liveUrl: 'https://github.com/unplage/mu-bu',
-      codeUrl: 'https://github.com/unplage/mu-bu',
     },
   ],
 
