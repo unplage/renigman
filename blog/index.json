@@ -1,13 +1,5 @@
 [
   {
-    "slug": "rna-seq-guide",
-    "title": "单细胞 RNA-seq 分析流程选型指南（仅为占位文章）",
-    "date": "2026-06-20",
-    "excerpt": "深入对比 Seurat V5、Scanpy 和 Monocle 3 的核心差异，结合实际项目经验给出最适合不同场景的技术选型建议。",
-    "tags": ["单细胞", "RNA-seq", "流程选型"],
-    "filename": "rna-seq-guide.md"
-  },
-  {
     "slug": "reading-plan",
     "title": "阅读推荐及感悟",
     "date": "2026-08-03",
