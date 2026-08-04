@@ -108,8 +108,8 @@ const CONTENT = {
     },
     {
       title: 'KmWord 智能单词学习',
-      desc: '基于 PWA 的智能单词学习应用，模拟扇贝单词体验，集成free dict api、韦氏词典api、默认智谱GLM-4.7-flash api、纯正英英释义、可导入文章进行阅读，原生 TTS + mimo-v2.5-tts语音朗读、离线学习与进度追踪功能。',
-      tech: ['JavaScript', 'glm-4.7-flash', 'Android', 'WebView', 'TTS'],
+      desc: '基于PWA的智能单词学习应用，模拟扇贝单词体验，集成free dict api、韦氏词典api、默认智谱GLM-4.7-flash api、纯正英英释义、可导入文章进行阅读，原生 TTS + mimo-v2.5-tts语音朗读、离线学习与进度追踪功能。',
+      tech: ['JavaScript', 'glm-4.7-flash', 'Android', 'mimo-v2.5-tts'],
       emoji: '\uD83D\uDCDA',
       liveUrl: 'https://unplage.github.io/kmword',
       codeUrl: 'https://github.com/unplage/kmword',

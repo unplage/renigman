@@ -22,5 +22,13 @@
     "excerpt": "不定期更新个人的一些不成熟思考或想法，强迫自己在纷繁的世界里保持思考是很重要的事。",
     "tags": ["早起", "专注", "从容"],
     "filename": "self-ponder.md"
+  },
+  {
+    "slug": "notes_from_kindle",
+    "title": "kindle阅读摘录",
+    "date": "2026-08-04",
+    "excerpt": "将kindle划线的句子整理摘录，供思考与批判。",
+    "tags": ["摘录", "zlib。re", "kindle"],
+    "filename": "notes_from_kindle.md"
   }
 ]
