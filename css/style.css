@@ -903,6 +903,8 @@ img { max-width: 100%; display: block; }
   line-height: 1.8;
   color: var(--text);
   will-change: transform;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .reader-content h1 {
