@@ -1,5 +1,13 @@
 [
   {
+    "slug": "solution-design",
+    "title": "膜蛋白可溶性表达（AI总结生成）",
+    "date": "2026-08-17",
+    "excerpt": "跨膜蛋白的可溶表达",
+    "tags": ["af2", "proteinMPNN", "GPCR"],
+    "filename": "solution-design.md"
+  },
+  {
     "slug": "3_Periods_Of_History",
     "title": "中国古代3段历史（AI总结生成）",
     "date": "2026-08-13",
