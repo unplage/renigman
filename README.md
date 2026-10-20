@@ -1,6 +1,6 @@
-# renigman · 生物信息学个人主页
+# renigman · 抗体发现与抗体工程个人主页
 
-纯静态个人主页，生物信息学方向，支持 PWA 离线访问。玻璃态设计，七模块布局，Markdown 博客系统。
+纯静态个人主页，聚焦抗体发现、抗体工程与生物信息学，支持 PWA 离线访问。玻璃态设计，七模块布局，Markdown 博客系统。
 
 [在线预览](https://unplage.github.io/renigman)
 

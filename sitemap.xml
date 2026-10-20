@@ -6,17 +6,27 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://unplage.github.io/renigman/#blog/rna-seq-guide</loc>
+    <loc>https://unplage.github.io/renigman/#blog/solution-design</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://unplage.github.io/renigman/#blog/nextflow-practice</loc>
+    <loc>https://unplage.github.io/renigman/#blog/3_Periods_Of_History</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://unplage.github.io/renigman/#blog/gatk-best-practice</loc>
+    <loc>https://unplage.github.io/renigman/#blog/notes_from_kindle</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://unplage.github.io/renigman/#blog/reading-plan</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://unplage.github.io/renigman/#blog/self-ponder</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

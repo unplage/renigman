@@ -1,4 +1,4 @@
-var CACHE_NAME = 'renigman-v8'
+var CACHE_NAME = 'renigman-v9'
 
 var PRECACHE_URLS = [
   '.',

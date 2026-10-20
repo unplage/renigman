@@ -1,7 +1,7 @@
 {
-  "name": "renigman · 生物信息学",
+  "name": "renigman · 抗体发现与抗体工程",
   "short_name": "renigman",
-  "description": "个人作品集与简历网站",
+  "description": "抗体发现、抗体工程与生物信息学个人作品集",
   "start_url": ".",
   "display": "standalone",
   "orientation": "portrait-primary",

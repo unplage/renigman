@@ -44,7 +44,7 @@ window.renderBlog = function (container) {
     <div class="section-header">\
       <span class="section-tag">Blog</span>\
       <h2 class="section-title">技术博客</h2>\
-      <p class="section-subtitle">生信技术分享与思考</p>\
+      <p class="section-subtitle">抗体工程、生信与 AI 实践分享</p>\
     </div>\
     <div id="blogList" class="blog-grid">' + skeleton + '</div>\
     <div id="blogMoreWrapper"></div>'
@@ -257,17 +257,17 @@ window.closeBlogReader = function () {
     history.replaceState(null, '', '#blog/all')
   } else {
     document.getElementById('mainContent').style.display = ''
-    document.title = 'renigman · 生物信息学'
-    document.querySelector('meta[name="description"]').setAttribute('content', 'renigman · 生物信息学个人主页')
+    document.title = 'renigman · 抗体发现与抗体工程'
+    document.querySelector('meta[name="description"]').setAttribute('content', 'renigman · 抗体发现、抗体工程与生物信息学个人主页')
     var ogTitle = document.querySelector('meta[property="og:title"]')
     var ogDesc = document.querySelector('meta[property="og:description"]')
     var ogUrl = document.querySelector('meta[property="og:url"]')
-    if (ogTitle) ogTitle.setAttribute('content', 'renigman · 生物信息学')
-    if (ogDesc) ogDesc.setAttribute('content', 'renigman · 生物信息学个人主页')
+    if (ogTitle) ogTitle.setAttribute('content', 'renigman · 抗体发现与抗体工程')
+    if (ogDesc) ogDesc.setAttribute('content', 'renigman · 抗体发现、抗体工程与生物信息学个人主页')
     if (ogUrl) ogUrl.setAttribute('content', 'https://unplage.github.io/renigman/')
     var twTitle = document.querySelector('meta[name="twitter:title"]')
     var twDesc = document.querySelector('meta[name="twitter:description"]')
-    if (twTitle) twTitle.setAttribute('content', 'renigman · 生物信息学')
-    if (twDesc) twDesc.setAttribute('content', 'renigman · 生物信息学个人主页')
+    if (twTitle) twTitle.setAttribute('content', 'renigman · 抗体发现与抗体工程')
+    if (twDesc) twDesc.setAttribute('content', 'renigman · 抗体发现、抗体工程与生物信息学个人主页')
   }
 }

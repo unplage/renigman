@@ -3,9 +3,9 @@
   <channel>
     <title>renigman 的技术博客</title>
     <link>https://unplage.github.io/renigman/</link>
-    <description>生物信息学 · 计算生物学 · 技术分享</description>
+    <description>抗体工程 · 生物信息学 · AI 实践分享</description>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 20 Jun 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 17 Aug 2026 00:00:00 GMT</lastBuildDate>
     <atom:link href="https://unplage.github.io/renigman/feed.xml" rel="self" type="application/rss+xml"/>
 
     <item>
@@ -16,25 +16,32 @@
       <description>跨膜蛋白的可溶表达</description>
     </item>
     <item>
-      <title>单细胞 RNA-seq 分析流程选型指南</title>
-      <link>https://unplage.github.io/renigman/#blog/rna-seq-guide</link>
-      <guid>https://unplage.github.io/renigman/#blog/rna-seq-guide</guid>
-      <pubDate>Sat, 20 Jun 2026 00:00:00 GMT</pubDate>
-      <description>深入对比 Seurat V5、Scanpy 和 Monocle 3 的核心差异</description>
+      <title>中国古代3段历史（AI总结生成）</title>
+      <link>https://unplage.github.io/renigman/#blog/3_Periods_Of_History</link>
+      <guid>https://unplage.github.io/renigman/#blog/3_Periods_Of_History</guid>
+      <pubDate>Thu, 13 Aug 2026 00:00:00 GMT</pubDate>
+      <description>正视历史，吸取经验教训。</description>
     </item>
     <item>
-      <title>Nextflow 实战：构建可复用的生信分析流程</title>
-      <link>https://unplage.github.io/renigman/#blog/nextflow-practice</link>
-      <guid>https://unplage.github.io/renigman/#blog/nextflow-practice</guid>
-      <pubDate>Sun, 12 Apr 2026 00:00:00 GMT</pubDate>
-      <description>从 DSL2 语法、容器化到 CI/CD 集成</description>
+      <title>kindle阅读摘录</title>
+      <link>https://unplage.github.io/renigman/#blog/notes_from_kindle</link>
+      <guid>https://unplage.github.io/renigman/#blog/notes_from_kindle</guid>
+      <pubDate>Tue, 04 Aug 2026 00:00:00 GMT</pubDate>
+      <description>将kindle划线的句子整理摘录，供思考与批判。</description>
     </item>
     <item>
-      <title>变异检测的 GATK 最佳实践解析</title>
-      <link>https://unplage.github.io/renigman/#blog/gatk-best-practice</link>
-      <guid>https://unplage.github.io/renigman/#blog/gatk-best-practice</guid>
-      <pubDate>Sat, 28 Feb 2026 00:00:00 GMT</pubDate>
-      <description>详解 GATK HaplotypeCaller 原理和 VQSR 流程</description>
+      <title>阅读推荐及感悟</title>
+      <link>https://unplage.github.io/renigman/#blog/reading-plan</link>
+      <guid>https://unplage.github.io/renigman/#blog/reading-plan</guid>
+      <pubDate>Mon, 03 Aug 2026 00:00:00 GMT</pubDate>
+      <description>不定期更新一些好书推荐，学习是验证人生复利的过程。</description>
+    </item>
+    <item>
+      <title>renigman的些许思考</title>
+      <link>https://unplage.github.io/renigman/#blog/self-ponder</link>
+      <guid>https://unplage.github.io/renigman/#blog/self-ponder</guid>
+      <pubDate>Thu, 30 Jul 2026 00:00:00 GMT</pubDate>
+      <description>不定期更新个人的一些不成熟思考或想法，强迫自己在纷繁的世界里保持思考是很重要的事。</description>
     </item>
   </channel>
 </rss>
