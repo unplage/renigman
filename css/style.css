@@ -576,6 +576,64 @@ img { max-width: 100%; display: block; }
   gap: 10px;
 }
 
+.project-tools {
+  margin-bottom: 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg-card);
+}
+
+.project-tools-summary {
+  cursor: pointer;
+  padding: 8px 12px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--primary-light);
+  list-style: none;
+  user-select: none;
+}
+
+.project-tools-summary::-webkit-details-marker {
+  display: none;
+}
+
+.project-tools-summary::before {
+  content: '▸';
+  display: inline-block;
+  margin-right: 6px;
+  transition: transform var(--transition);
+}
+
+.project-tools[open] .project-tools-summary::before {
+  content: '▾';
+}
+
+.project-tools-list {
+  list-style: none;
+  margin: 0;
+  padding: 0 12px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-top: 1px solid var(--border);
+  padding-top: 10px;
+}
+
+.project-tools-list li {
+  font-size: 0.78rem;
+  line-height: 1.55;
+  color: var(--text-secondary);
+}
+
+.project-tool-name {
+  display: inline-block;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-right: 6px;
+}
+
 /* ── Experience ── */
 .timeline {
   position: relative;

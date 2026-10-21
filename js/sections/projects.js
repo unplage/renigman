@@ -13,6 +13,17 @@ window.renderProjects = function (container) {
           <div class="project-banner">${p.emoji}</div>
           <h3 class="project-title">${p.title}</h3>
           <p class="project-desc">${p.desc}</p>
+          ${p.tools && p.tools.length ? `
+          <details class="project-tools">
+            <summary class="project-tools-summary">内置工具 · ${p.tools.length} 项</summary>
+            <ul class="project-tools-list">
+              ${p.tools.map(t => `
+                <li>
+                  <span class="project-tool-name">${t.name}</span>
+                  <span class="project-tool-desc">${t.desc}</span>
+                </li>`).join('')}
+            </ul>
+          </details>` : ''}
           <div class="project-tech">
             ${p.tech.map(t => `<span>${t}</span>`).join('')}
           </div>
