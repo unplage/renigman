@@ -1,4 +1,4 @@
-var CACHE_NAME = 'renigman-v10'
+var CACHE_NAME = 'renigman-v11'
 
 var PRECACHE_URLS = [
   '.',
@@ -15,6 +15,9 @@ var PRECACHE_URLS = [
   'js/sections/contact.js',
   'icons/icon-192.svg',
   'icons/icon-512.svg',
+  'icons/icon-192.png',
+  'icons/icon-512.png',
+  'icons/icon-maskable-512.png',
   'manifest.json',
   'feed.xml',
   'sitemap.xml',

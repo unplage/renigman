@@ -38,7 +38,7 @@ python3 -m http.server 8080   # no install required
 
 - JSON-LD structured data in `index.html` (`Person`) + dynamic `BlogPosting` via `js/sections/blog.js`
 - `sitemap.xml`, `feed.xml`, `manifest.json`, `sw.js` all hand-written
-- Icons: `icons/icon-192.svg`, `icons/icon-512.svg`
+- Icons: `icons/icon-192.svg`, `icons/icon-512.svg` (source of truth, shared 512 viewBox), plus `icons/icon-maskable-512.svg` (full-bleed for OS masking) and PNG exports `icons/icon-192.png`, `icons/icon-512.png`, `icons/icon-maskable-512.png`, `icons/apple-touch-icon.png`. Regenerate PNGs with `inkscape -z icons/icon-512.svg -e icons/icon-512.png -w 512 -h 512`.
 
 ## Constraints
 

@@ -5,9 +5,22 @@ window.renderHero = function (container) {
     <div class="hero-content">
       <div class="hero-avatar">
         <div class="hero-avatar-inner">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-            <circle cx="12" cy="7" r="4"/>
+          <svg viewBox="96 104 320 348" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <g stroke-width="11" opacity="0.5">
+              <path d="M 256 124 C 272.8 131, 288 138, 288 145 C 288 152, 272.8 159, 256 166 C 239.2 173, 224 180, 224 187 C 224 194, 239.2 201, 256 208 C 272.8 215, 288 222, 288 229 C 288 236, 272.8 243, 256 250"/>
+              <path d="M 256 124 C 239.2 131, 224 138, 224 145 C 224 152, 239.2 159, 256 166 C 272.8 173, 288 180, 288 187 C 288 194, 272.8 201, 256 208 C 239.2 215, 224 222, 224 229 C 224 236, 239.2 243, 256 250"/>
+              <g stroke-width="8">
+                <path d="M 242 134.5 H 270"/>
+                <path d="M 242 176.5 H 270"/>
+                <path d="M 242 218.5 H 270"/>
+                <path d="M 242 239.5 H 270"/>
+              </g>
+            </g>
+            <g stroke-width="56">
+              <path d="M 138 172 Q 172 236, 256 314"/>
+              <path d="M 374 172 Q 340 236, 256 314"/>
+              <path d="M 256 314 L 256 408"/>
+            </g>
           </svg>
         </div>
       </div>
