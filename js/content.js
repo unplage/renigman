@@ -100,6 +100,14 @@ const CONTENT = {
       codeUrl: 'https://github.com/unplage/humanization',
     },
     {
+      title: 'Number 抗体编号',
+      desc: '全离线抗体编号与 CDR 注释 PWA：支持 IMGT、Kabat、Chothia、Martin、AHo、Wolfguy 六套编号方案，自动完成链型判定（H/K/L 及 VHH 特征识别）、germline V/J 指派、编号置信度评估、CDR 环长统计与序列风险（PTM）标记；基于 Rust→WASM 引擎与多核 Web Worker 池高速批量处理，Kabat 轻链采用自研锚点引擎修正 CDR3 编号，支持 FASTA 粘贴/上传/拖拽与 scFv 多结构域输入，结果可导出 TSV/CSV/JSON、ANARCI 风格输出与 FASTA+CDR，全程本地运行、数据不出浏览器。',
+      tech: ['JavaScript', 'Rust/WASM', 'PWA', 'ANARCI', 'Web Worker'],
+      emoji: '\uD83D\uDD22',
+      liveUrl: 'https://unplage.github.io/number',
+      codeUrl: 'https://github.com/unplage/number',
+    },
+    {
       title: 'CFU Count 菌落计数',
       desc: '基于 YOLO26n ONNX 的平板菌落计数 PWA，内置通用识别与菌落计数双模型（102 张真实世界黑底平板训练），可调置信度与 IoU，模型首次下载后完全本地推理，快速统计培养皿菌落数量。',
       tech: ['HTML', 'JavaScript', 'YOLO26n', 'ONNX', 'PWA'],
