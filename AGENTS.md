@@ -46,4 +46,4 @@ python3 -m http.server 8080   # no install required
 - `marked.js` loaded from CDN — internet required for blog rendering. If updating the CDN URL, sync the `integrity` hash in `index.html:149`.
 - `Content-Security-Policy` meta tag in `index.html:8` — update if adding external scripts, styles, fonts, or connections
 - Search indexes in-memory from `blog/index.json`
-- Theme persisted in `localStorage` (key: `theme`)
+- Theme persisted in `localStorage` (key: `renigman-theme`, migrated from legacy `theme`)

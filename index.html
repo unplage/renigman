@@ -29,8 +29,17 @@
   <link rel="stylesheet" href="css/style.css" />
   <script>
     (function(){
-      var t = localStorage.getItem('theme')
-      if (!t) { t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light' }
+      var key = 'renigman-theme'
+      var t = localStorage.getItem(key)
+      if (t !== 'dark' && t !== 'light') {
+        var legacy = localStorage.getItem('theme')
+        if (legacy === 'dark' || legacy === 'light') {
+          t = legacy
+          localStorage.setItem(key, t)
+        } else {
+          t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+        }
+      }
       document.documentElement.setAttribute('data-theme', t)
     })()
   </script>

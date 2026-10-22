@@ -52,7 +52,7 @@
         var current = document.documentElement.getAttribute('data-theme')
         var next = current === 'light' ? 'dark' : 'light'
         document.documentElement.setAttribute('data-theme', next)
-        localStorage.setItem('theme', next)
+        localStorage.setItem('renigman-theme', next)
       })
     }
   }

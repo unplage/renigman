@@ -1,5 +1,5 @@
 var CACHE_PREFIX = 'renigman-'
-var CACHE_NAME = CACHE_PREFIX + 'v13'
+var CACHE_NAME = CACHE_PREFIX + 'v14'
 
 var PRECACHE_URLS = [
   '.',
