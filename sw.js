@@ -1,4 +1,5 @@
-var CACHE_NAME = 'renigman-v12'
+var CACHE_PREFIX = 'renigman-'
+var CACHE_NAME = CACHE_PREFIX + 'v13'
 
 var PRECACHE_URLS = [
   '.',
@@ -37,7 +38,9 @@ self.addEventListener('activate', function (event) {
     caches.keys().then(function (keys) {
       return Promise.all(
         keys
-          .filter(function (key) { return key !== CACHE_NAME })
+          .filter(function (key) {
+            return key.indexOf(CACHE_PREFIX) === 0 && key !== CACHE_NAME
+          })
           .map(function (key) { return caches.delete(key) })
       )
     })
@@ -51,7 +54,7 @@ self.addEventListener('fetch', function (event) {
 
   if (url.pathname.includes('/blog/')) {
     event.respondWith(
-      caches.match(event.request).then(function (cached) {
+      caches.match(event.request, { cacheName: CACHE_NAME }).then(function (cached) {
         var fetched = fetch(event.request).then(function (response) {
           if (response && response.status === 200) {
             var copy = response.clone()
@@ -68,7 +71,7 @@ self.addEventListener('fetch', function (event) {
   }
 
   event.respondWith(
-    caches.match(event.request).then(function (cached) {
+    caches.match(event.request, { cacheName: CACHE_NAME }).then(function (cached) {
       var fetched = fetch(event.request).then(function (response) {
         if (response && response.status === 200) {
           var copy = response.clone()
