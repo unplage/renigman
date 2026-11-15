@@ -9,39 +9,39 @@
     <atom:link href="https://unplage.github.io/renigman/feed.xml" rel="self" type="application/rss+xml"/>
 
     <item>
-      <title>膜蛋白可溶性表达（AI总结生成）</title>
+      <title>膜蛋白免疫的「阿喀琉斯之踵」：AI 如何从源头改写抗体发现的游戏规则</title>
       <link>https://unplage.github.io/renigman/#blog/solution-design</link>
       <guid>https://unplage.github.io/renigman/#blog/solution-design</guid>
       <pubDate>Mon, 17 Aug 2026 00:00:00 GMT</pubDate>
-      <description>跨膜蛋白的可溶表达</description>
+      <description>膜蛋白约占人类基因组 30%，已获批治疗性抗体中靶向复杂多跨膜蛋白的仅 20 个、靶向 GPCR 的仅 1 个——本文梳理「提取膜蛋白」转向「设计免疫原」的 AI 路径。</description>
     </item>
     <item>
-      <title>中国古代3段历史（AI总结生成）</title>
+      <title>血火之间：三国、南北朝与五代十国的历史镜鉴</title>
       <link>https://unplage.github.io/renigman/#blog/3_Periods_Of_History</link>
       <guid>https://unplage.github.io/renigman/#blog/3_Periods_Of_History</guid>
       <pubDate>Thu, 13 Aug 2026 00:00:00 GMT</pubDate>
-      <description>正视历史，吸取经验教训。</description>
+      <description>三个分裂时期遵循近乎一致的崩塌逻辑：中央权威解体、财政根基腐烂、社会秩序归零。从历史演进、经济结构与文化嬗变三个维度寻找文明重建的密码。</description>
     </item>
     <item>
-      <title>kindle阅读摘录</title>
+      <title>kindle 阅读摘录</title>
       <link>https://unplage.github.io/renigman/#blog/notes_from_kindle</link>
       <guid>https://unplage.github.io/renigman/#blog/notes_from_kindle</guid>
       <pubDate>Tue, 04 Aug 2026 00:00:00 GMT</pubDate>
-      <description>将kindle划线的句子整理摘录，供思考与批判。</description>
+      <description>整理 89 组 Kindle 划线：《21 世纪资本论》《曾国藩家书》《三体》《读者》半月刊、指数基金投资指南与经济学科普摘录，供思考与批判。</description>
     </item>
     <item>
-      <title>阅读推荐及感悟</title>
+      <title>问渠那得清如许：阅读推荐及感悟</title>
       <link>https://unplage.github.io/renigman/#blog/reading-plan</link>
       <guid>https://unplage.github.io/renigman/#blog/reading-plan</guid>
       <pubDate>Mon, 03 Aug 2026 00:00:00 GMT</pubDate>
-      <description>不定期更新一些好书推荐，学习是验证人生复利的过程。</description>
+      <description>单伟健《走出戈壁》自传推荐，以及 awesome-english-ebooks 英文杂志清单。学习是验证人生复利的过程。</description>
     </item>
     <item>
-      <title>renigman的些许思考</title>
+      <title>renigman 的些许思考</title>
       <link>https://unplage.github.io/renigman/#blog/self-ponder</link>
       <guid>https://unplage.github.io/renigman/#blog/self-ponder</guid>
       <pubDate>Thu, 30 Jul 2026 00:00:00 GMT</pubDate>
-      <description>不定期更新个人的一些不成熟思考或想法，强迫自己在纷繁的世界里保持思考是很重要的事。</description>
+      <description>名字取自「夜归人」。聊 AI 大模型如何帮普通人夺回移动互联网时代失去的数据主权，以及「注意力归一计划」。</description>
     </item>
   </channel>
 </rss>

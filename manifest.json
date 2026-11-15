@@ -2,11 +2,18 @@
   "name": "renigman · 抗体发现与抗体工程",
   "short_name": "renigman",
   "description": "抗体发现、抗体工程与生物信息学个人作品集",
+  "id": "./",
   "start_url": ".",
+  "scope": "./",
   "display": "standalone",
-  "orientation": "portrait-primary",
+  "display_override": ["standalone", "minimal-ui", "browser"],
+  "orientation": "any",
+  "lang": "zh-CN",
+  "dir": "ltr",
   "theme_color": "#667eea",
   "background_color": "#0f0f1a",
+  "categories": ["portfolio", "productivity", "education", "science"],
+  "prefer_related_applications": false,
   "icons": [
     {
       "src": "icons/icon-192.svg",
@@ -19,6 +26,12 @@
       "sizes": "any",
       "type": "image/svg+xml",
       "purpose": "any"
+    },
+    {
+      "src": "icons/icon-maskable-512.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
     },
     {
       "src": "icons/icon-192.png",

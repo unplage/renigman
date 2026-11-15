@@ -47,12 +47,14 @@
 
   function initTheme() {
     var btn = document.getElementById('themeToggle')
+    var meta = document.getElementById('themeColorMeta')
     if (btn) {
       btn.addEventListener('click', function () {
         var current = document.documentElement.getAttribute('data-theme')
         var next = current === 'light' ? 'dark' : 'light'
         document.documentElement.setAttribute('data-theme', next)
         localStorage.setItem('renigman-theme', next)
+        if (meta) meta.setAttribute('content', next === 'dark' ? '#0f0f1a' : '#f0f2f5')
       })
     }
   }

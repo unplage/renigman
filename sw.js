@@ -1,5 +1,5 @@
 var CACHE_PREFIX = 'renigman-'
-var CACHE_NAME = CACHE_PREFIX + 'v14'
+var CACHE_NAME = CACHE_PREFIX + 'v15'
 
 var PRECACHE_URLS = [
   '.',
@@ -16,19 +16,35 @@ var PRECACHE_URLS = [
   'js/sections/contact.js',
   'icons/icon-192.svg',
   'icons/icon-512.svg',
+  'icons/icon-maskable-512.svg',
   'icons/icon-192.png',
   'icons/icon-512.png',
   'icons/icon-maskable-512.png',
+  'icons/apple-touch-icon.png',
   'manifest.json',
   'feed.xml',
   'sitemap.xml',
+  'clear.html',
   'blog/index.json',
+  'blog/posts/solution-design.md',
+  'blog/posts/3_Periods_Of_History.md',
+  'blog/posts/notes_from_kindle.md',
+  'blog/posts/reading-plan.md',
+  'blog/posts/self-ponder.md',
 ]
 
 self.addEventListener('install', function (event) {
   event.waitUntil(
     caches.open(CACHE_NAME).then(function (cache) {
-      return cache.addAll(PRECACHE_URLS)
+      return Promise.all(
+        PRECACHE_URLS.map(function (url) {
+          return cache.add(new Request(url, { cache: 'reload' })).catch(function (err) {
+            console.warn('[sw] precache failed:', url, err)
+          })
+        })
+      )
+    }).then(function () {
+      return self.skipWaiting()
     })
   )
 })
@@ -43,45 +59,70 @@ self.addEventListener('activate', function (event) {
           })
           .map(function (key) { return caches.delete(key) })
       )
+    }).then(function () {
+      return self.clients.claim()
     })
   )
 })
 
-self.addEventListener('fetch', function (event) {
-  var url = new URL(event.request.url)
+self.addEventListener('message', function (event) {
+  if (event.data === 'SKIP_WAITING') self.skipWaiting()
+})
 
+function offlineFallback() {
+  return new Response('Offline and not cached.', {
+    status: 503,
+    statusText: 'Service Unavailable',
+    headers: { 'Content-Type': 'text/plain; charset=utf-8' },
+  })
+}
+
+function staleWhileRevalidate(request) {
+  return caches.match(request, { cacheName: CACHE_NAME }).then(function (cached) {
+    var fetched = fetch(request).then(function (response) {
+      if (response && response.status === 200) {
+        var copy = response.clone()
+        caches.open(CACHE_NAME).then(function (cache) {
+          cache.put(request, copy)
+        })
+      }
+      return response
+    }).catch(function () {
+      return cached || offlineFallback()
+    })
+    return cached || fetched
+  })
+}
+
+function navigationHandler(request) {
+  return caches.match('index.html', { cacheName: CACHE_NAME }).then(function (cached) {
+    var fetched = fetch(request).then(function (response) {
+      if (response && response.status === 200) {
+        var copy = response.clone()
+        caches.open(CACHE_NAME).then(function (cache) {
+          cache.put('index.html', copy)
+        })
+      }
+      return response
+    }).catch(function () {
+      return cached || offlineFallback()
+    })
+    return cached || fetched
+  })
+}
+
+self.addEventListener('fetch', function (event) {
+  var request = event.request
+
+  if (request.method !== 'GET') return
+
+  var url = new URL(request.url)
   if (url.origin !== location.origin) return
 
-  if (url.pathname.includes('/blog/')) {
-    event.respondWith(
-      caches.match(event.request, { cacheName: CACHE_NAME }).then(function (cached) {
-        var fetched = fetch(event.request).then(function (response) {
-          if (response && response.status === 200) {
-            var copy = response.clone()
-            caches.open(CACHE_NAME).then(function (cache) {
-              cache.put(event.request, copy)
-            })
-          }
-          return response
-        })
-        return cached || fetched
-      })
-    )
+  if (request.mode === 'navigate') {
+    event.respondWith(navigationHandler(request))
     return
   }
 
-  event.respondWith(
-    caches.match(event.request, { cacheName: CACHE_NAME }).then(function (cached) {
-      var fetched = fetch(event.request).then(function (response) {
-        if (response && response.status === 200) {
-          var copy = response.clone()
-          caches.open(CACHE_NAME).then(function (cache) {
-            cache.put(event.request, copy)
-          })
-        }
-        return response
-      })
-      return cached || fetched
-    })
-  )
+  event.respondWith(staleWhileRevalidate(request))
 })

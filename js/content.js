@@ -87,7 +87,7 @@ const CONTENT = {
       desc: '面向抗体研发日常场景的生物医学工具箱：同一仓库内集成「靶点调研 → 引物设计 → 序列分析 → 抗体库检索」全流程工具。靶点调研报告生成器可一键检索 PubMed、ClinicalTrials.gov、Open Targets、UniProt、ChEMBL、HPA 与多国专利数据，调用 DeepSeek / MiMo / 智谱 GLM 等多 AI 厂商输出带引用的结构化研判，并导出 Markdown / JSON / PPT / Word / PDF；引物侧覆盖 NNK 突变组合、His-mut 多点组氨酸突变与 BsaI 位点重复性分析，配合经 56 条序列校准（RMSE 1.16 °C）的 Tm 计算器给出退火温度建议；分析侧提供纯前端多序列比对与 CDR 提取、IgBLAST 检索。除 PWA 与 Python 桌面版外，大部分工具为单文件 HTML / Tkinter 脚本，数据不出本机、开箱即用。',
       tech: ['Python', 'PWA', 'BioPython', 'IgBLAST', 'AI APIs'],
       emoji: '\uD83E\uDDEC',
-      liveUrl: 'https://github.com/unplage/bio-box',
+      liveUrl: 'https://unplage.github.io/bio-box/',
       codeUrl: 'https://github.com/unplage/bio-box',
       tools: [
         { name: 'target-info', desc: '靶点调研报告生成器：PWA + PyQt5 双版本，整合文献/临床/靶点/药物/专利多源检索，多 AI 厂商联网研判，支持突变特异检索（如 EGFR T790M）、本地历史报告库与追问问答。' },

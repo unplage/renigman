@@ -1,6 +1,28 @@
 window.renderContact = function (container) {
   try {
   var d = CONTENT.contact
+  var mailto = 'mailto:' + d.email +
+    '?subject=' + encodeURIComponent('关于 renigman 个人主页的咨询') +
+    '&body=' + encodeURIComponent('你好 renigman：\n\n我想就以下方向与你交流：\n\n')
+
+  var SOCIAL_ICONS = {
+    github: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>',
+    twitter: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>',
+    linkedin: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>',
+    blog: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>',
+  }
+  var SOCIAL_LABELS = { github: 'GitHub', twitter: 'Twitter', linkedin: 'LinkedIn', blog: '博客' }
+
+  var seenUrls = {}
+  var socialLinks = Object.keys(SOCIAL_ICONS).map(function (key) {
+    var url = d.social[key]
+    if (!url) return ''
+    if (key !== 'github' && url === d.social.github) return ''
+    if (seenUrls[url]) return ''
+    seenUrls[url] = true
+    return '<a href="' + url + '" class="social-link" target="_blank" rel="noopener" aria-label="' + SOCIAL_LABELS[key] + '">' + SOCIAL_ICONS[key] + '</a>'
+  }).join('')
+
   container.innerHTML = `
     <div class="section-header">
       <span class="section-tag">Contact</span>
@@ -42,21 +64,17 @@ window.renderContact = function (container) {
             </div>
           </div>
         </div>
+        <div style="margin-top:20px">
+          <a class="btn btn-primary" style="width:100%;justify-content:center;text-decoration:none" href="${mailto}">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            写邮件给我
+          </a>
+          <p style="font-size:0.8rem;color:var(--text-muted);margin-top:12px;text-align:center">学术交流 · 项目咨询 · 技术探讨</p>
+        </div>
         <div style="margin-top:16px">
           <div style="font-size:0.82rem;font-weight:500;color:var(--text-secondary);margin-bottom:10px">社交媒体</div>
           <div class="social-links">
-            <a href="${d.social.github}" class="social-link" target="_blank" rel="noopener" aria-label="GitHub">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-            </a>
-            <a href="${d.social.twitter}" class="social-link" target="_blank" rel="noopener" aria-label="Twitter">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
-            </a>
-            <a href="${d.social.linkedin}" class="social-link" target="_blank" rel="noopener" aria-label="LinkedIn">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-            </a>
-            <a href="${d.social.blog}" class="social-link" target="_blank" rel="noopener" aria-label="博客">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
-            </a>
+            ${socialLinks}
           </div>
         </div>
       </div>
