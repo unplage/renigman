@@ -97,6 +97,10 @@ const CONTENT = {
         { name: 'Tm-calculate', desc: '引物 Tm 值计算器：Tkinter 图形界面，单序列 / FASTA 批量 / 非 FASTA 逐行三种模式，输出 Tm、GC 含量与退火温度建议（CSV 导出）。' },
         { name: 'msa', desc: '多序列比对工具：纯前端 Needleman-Wunsch 全局比对 + NJ 引导树 + Clustal 风格渐进比对，支持保守性着色、consensus、子集重比对与 FASTA / Newick / PNG 导出。' },
         { name: 'format-convert', desc: 'FASTA 格式转换工具：多文件合并为单文件、单文件拆分打包 ZIP，支持 ID 冲突自动重编号与文件名前缀策略。' },
+        { name: 'RFD4-Proteina', desc: 'Baker Lab × NVIDIA 2026 开源生物分子生成模型分析：RFD4-Proteina 亲和力成熟 pipeline（调用 NVIDIA NIM）、论文/权重/文档索引，BSD-3-Clause。' },
+        { name: 'nvidia-bio', desc: 'NVIDIA BioNeMo NIM 统一 CLI：ProteinMPNN（序列设计）与 Boltz-2（结构预测），对比托管 API 与本地版功能差异（log-probs、tied positions、随机种子等）。' },
+        { name: 'protein-analyse', desc: '单文件纯前端 PWA：分子量/pI（多 pKa 参数集）、KD 疏水性剖面、抗体粘度预测、A280 浓度、摩尔换算、Tm 计算、密码子优化、参考手册，离线可用。' },
+        { name: 'seq-analyse', desc: 'scFv/Fab/VHH 序列提取脚本：从原始测序数据中解析 CDR 与全长可变区，支持多版本格式。' },
       ],
     },
     {
@@ -118,6 +122,9 @@ const CONTENT = {
         { name: 'tap_profiler', desc: 'TAP 可开发性评估：按 TAP2 2025 指南计算 Ltot、PSH、PPC、PNC、SFvCSP 五项指标并给出绿/黄/红风险分级，定位成药性隐患。' },
         { name: 'usan', desc: 'USAN 命名报告：依据 USAN 标准指南，为人源化抗体生成规范的非专有名称建议与说明文档。' },
         { name: 'mpnn', desc: 'ProteinMPNN 框架再设计：在结构约束下对表面暴露的可开发性风险位点做序列优化，输出可测试的框架变体序列。' },
+        { name: 'biophi', desc: 'BioPhi 独立封装：Sapiens human antibody language model（mean/矩阵/embeddings）、OASis（9-mer 人类库肽段频率、胚系匹配）、四种人源化模式、交叉验证评估；独立 conda 环境运行，不污染主流水线。' },
+        { name: 'boltz', desc: 'Boltz-2 结构预测 CLI：从 FASTA 预测 Fab/Fv 结构，输出带 pLDDT B-factor 的 PDB；支持离线单序列模式，专用 conda 环境。' },
+        { name: 'pi_analysis', desc: '结构感知 pI / Fv 电荷分析：复用 TAP/ANARCI/FreeSASA 注释，PDB 时修正埋藏/盐桥/二硫键影响 pKa；无结构时回退序列计算；多 pKa 参数集（Bjellqvist/IPC/EMBOSS/Sillero）。' },
       ],
     },
     {
